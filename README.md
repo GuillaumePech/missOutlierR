@@ -111,15 +111,9 @@ x_clean <- detect_outlier_miss(x, silent = TRUE)
 
 If you use this package in your research, please cite:
 
-> Pech, G., Vaccaro, N., Caspar, E. A., Amerio, P., Cleeremans, A., Leys, C., & Ley, C. (2026). How not to MISS an outlier: comparing three classic univariate methods and introducing a new one, the MAD–IQR–SD Simultaneous (MISS). *PsyArXiv*. https://doi.org/10.31234/osf.io/2r9yw_v2
-
 ```bibtex
-@article{pech2026miss,
-  title={How not to {MISS} an outlier: comparing three classic univariate methods and introducing a new one, the {MAD--IQR--SD} Simultaneous ({MISS})},
-  author={Pech, Guillaume and Vaccaro, Niccol{\`o} and Caspar, Emilie A. and Amerio, Pietro and Cleeremans, Axel and Leys, Christophe and Ley, Christophe},
-  year={2026},
-  journal={PsyArXiv},
-  doi={10.31234/osf.io/2r9yw_v2}
-}
+
+ Pech, G., Vaccaro, N., Caspar, E. A., Amerio, P., Cleeremans, A., Leys, C., & Ley, C. (2026). How not to MISS an outlier: comparing three classic univariate methods and introducing a new one, the MAD–IQR–SD Simultaneous (MISS). *PsyArXiv*. https://doi.org/10.31234/osf.io/2r9yw_v2
+
 ```
 
