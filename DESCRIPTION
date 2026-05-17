@@ -1,0 +1,10 @@
+Package: missOutlier
+Title: Outlier Detection Using the MISS Method
+Version: 0.1.0
+Authors@R: person("Guillaume", "Pech", role = c("aut", "cre"), email = "guillaumepech.cog@gmail.com")
+Description: Detects outliers using the MISS method, a weighted combination of
+    Median Absolute Deviation (MAD), Interquartile Range (IQR), and Standard
+    Deviation (SD) thresholds.
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.3.1
