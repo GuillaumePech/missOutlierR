@@ -1,18 +1,58 @@
+
 #' Detect Outliers Using the MISS Method
 #'
-#' Identifies outliers via a weighted combination of MAD, IQR, and SD
-#' thresholds (0.878 * MAD + 0.012 * IQR + 0.11 * SD).
+#' Identifies outliers using the MISS method, a weighted composite of three
+#' classical outlier detection approaches: Median Absolute Deviation (MAD),
+#' Interquartile Range (IQR), and Standard Deviation (SD).
+#'
+#' @details
+#' The MISS threshold is computed as a weighted combination:
+#'
+#' \deqn{MISS = 0.878 \times MAD + 0.012 \times IQR + 0.11 \times SD}
+#'
+#' Where:
+#' \itemize{
+#'   \item MAD bounds: \code{median ± 1.5 * MAD}
+#'   \item IQR bounds: \code{Q25/Q75 ± 2 * IQR}
+#'   \item SD bounds: \code{mean ± 5 * SD}
+#' }
+#'
+#' Values outside the combined MISS bounds are flagged as outliers.
 #'
 #' @param data A numeric vector.
-#' @param drop If TRUE, removes outliers; if FALSE, replaces with NA (default FALSE).
-#' @param na.rm If TRUE, remove NA values before computation (default FALSE).
-#' @param silent If TRUE, suppress messages (default FALSE).
-#' @return A numeric vector with outliers removed or replaced by NA.
-#' @export
+#' @param drop Logical. If \code{TRUE}, removes outliers from the result.
+#'   If \code{FALSE} (default), replaces outliers with \code{NA}.
+#' @param na.rm Logical. If \code{TRUE}, removes \code{NA} values before
+#'   computing thresholds. Default is \code{FALSE}.
+#' @param silent Logical. If \code{TRUE}, suppresses the message reporting
+#'   the number of detected outliers. Default is \code{FALSE}.
+#'
+#' @return A numeric vector with outliers either removed or replaced by \code{NA},
+#'   depending on the \code{drop} argument.
+#'
 #' @examples
+#' # Basic usage
 #' x <- c(rnorm(50), 20, 100)
 #' detect_outlier_miss(x)
+#'
+#' # Drop outliers instead of replacing with NA
 #' detect_outlier_miss(x, drop = TRUE)
+#'
+#' # Handle data with existing NAs
+#' x_na <- c(rnorm(50), NA, 100)
+#' detect_outlier_miss(x_na, na.rm = TRUE)
+#'
+#' # Silent mode
+#' detect_outlier_miss(x, silent = TRUE)
+#'
+#' #' @references
+#' Pech, G., Vaccaro, N., Caspar, E. A., Amerio, P., Cleeremans, A., Leys, C.,
+#' & Ley, C. (2026). How not to MISS an outlier: comparing three classic
+#' univariate methods and introducing a new one, the MAD-IQR-SD Simultaneous
+#' (MISS). \emph{PsyArXiv}.
+#' \doi{10.31234/osf.io/2r9yw_v2}
+#' @export
+
 
 detect_outlier_miss <- function(data, drop = FALSE, na.rm = FALSE, silent = FALSE) {
   #force data to numeric if not already
