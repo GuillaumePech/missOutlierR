@@ -109,7 +109,7 @@ x_clean <- detect_outlier_miss(x, silent = TRUE)
 
 ## Citation
 
-If you use this package in your research, please cite:
+If you use this method or package in your research, please cite:
 
 ```bibtex
 
