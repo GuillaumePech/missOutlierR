@@ -8,12 +8,12 @@
 #' @details
 #' The MISS threshold is computed as a weighted combination:
 #'
-#' \deqn{MISS = 0.878 \times MAD + 0.012 \times IQR + 0.11 \times SD}
+#' \deqn{MISS = 0.878 \times 1.5 MAD + 0.012 \times 1 IQR + 0.11 \times 5 SD}
 #'
 #' Where:
 #' \itemize{
 #'   \item MAD bounds: \code{median ± 1.5 * MAD}
-#'   \item IQR bounds: \code{Q25/Q75 ± 2 * IQR}
+#'   \item IQR bounds: \code{Q25/Q75 ± 1 * IQR}
 #'   \item SD bounds: \code{mean ± 5 * SD}
 #' }
 #'
@@ -67,8 +67,8 @@ detect_outlier_miss <- function(data, drop = FALSE, na.rm = FALSE, silent = FALS
   outlier_lower_mad <- median(data, na.rm = na.rm) - (1.5 * mad(data, na.rm = na.rm))
 
   # Outlier detection using Interquartile Range (IQR)
-  outlier_upper_iqr <- quantile(data, .75, na.rm = na.rm) + (2 * IQR(data, na.rm = na.rm))
-  outlier_lower_iqr <- quantile(data, .25, na.rm = na.rm) - (2 * IQR(data, na.rm = na.rm))
+  outlier_upper_iqr <- quantile(data, .75, na.rm = na.rm) + (1 * IQR(data, na.rm = na.rm))
+  outlier_lower_iqr <- quantile(data, .25, na.rm = na.rm) - (1 * IQR(data, na.rm = na.rm))
 
   # Outlier detection using Standard Deviation (SD)
   outlier_upper_sd <- mean(data, na.rm = na.rm) + (5 * sd(data, na.rm = na.rm))

@@ -12,7 +12,7 @@
 #' \itemize{
 #'   \item \strong{MAD} (Median Absolute Deviation): \code{median ± 1.5 * MAD}
 #'     — robust to extreme values, weight = 0.878
-#'   \item \strong{IQR} (Interquartile Range): \code{Q25/Q75 ± 2 * IQR}
+#'   \item \strong{IQR} (Interquartile Range): \code{Q25/Q75 ± 1 * IQR}
 #'     — distribution-free, weight = 0.012
 #'   \item \strong{SD} (Standard Deviation): \code{mean ± 5 * SD}
 #'     — sensitive to tails, weight = 0.11

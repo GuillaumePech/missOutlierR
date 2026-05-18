@@ -20,7 +20,7 @@
 | Method | Bounds | Weight |
 |--------|--------|--------|
 | **MAD** (Median Absolute Deviation) | `median ± 1.5 × MAD` | 87.8% |
-| **IQR** (Interquartile Range) | `Q25/Q75 ± 2 × IQR` | 1.2% |
+| **IQR** (Interquartile Range) | `Q25/Q75 ± 1 × IQR` | 1.2% |
 | **SD** (Standard Deviation) | `mean ± 5 × SD` | 11.0% |
 
 The composite threshold is computed as:
@@ -90,7 +90,7 @@ x_clean <- detect_outlier_miss(x, silent = TRUE)
           ┌────────────┼────────────┐
           ▼            ▼            ▼
      ┌─────────┐ ┌─────────┐ ┌─────────┐
-     │   MAD   │ │   IQR   │ │   SD    │
+     │ 1.5 MAD │ │  1 IQR  │ │  5 SD   │
      │  ×0.878 │ │  ×0.012 │ │  ×0.11  │
      └────┬────┘ └────┬────┘ └────┬────┘
           │            │            │
